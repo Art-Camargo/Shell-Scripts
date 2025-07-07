@@ -1,0 +1,31 @@
+#
+# Detecta os nomes dos monitores conectados
+monitors=($(xrandr --query | grep " connected" | cut -d ' ' -f1))
+
+if [ ${#monitors[@]} -ne 2 ]; then
+    echo "Erro: esperado exatamente 2 monitores conectados."
+    echo "Monitores detectados: ${monitors[*]}"
+    exit 1
+fi
+
+primary=${monitors[0]}
+secondary=${monitors[1]}
+
+case "$1" in
+    --left)
+        echo "Colocando $primary à esquerda e $secondary à direita"
+        xrandr --output "$primary" --primary --auto --left-of "$secondary" --output "$secondary" --auto
+        ;;
+    --right)
+        echo "Colocando $primary à direita e $secondary à esquerda"
+        xrandr --output "$primary" --primary --auto --right-of "$secondary" --output "$secondary" --auto
+        ;;
+    *)
+        echo "Uso: chg --left | --right"
+        exit 1
+        ;;
+esac
+EOF
+
+# Dá permissão de execução
+
