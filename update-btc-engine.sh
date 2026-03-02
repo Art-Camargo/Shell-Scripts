@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# Carrega as variáveis definidas no .bashrc (inclui $CRIPTO)
+source "$HOME/.bashrc"
 # Nome da imagem usada
 IMAGE_NAME="btc-engine"
 
@@ -28,5 +29,5 @@ docker build -t $IMAGE_NAME .
 
 # Executa o comando que recria o container
 echo "Executando comando $CRIPTO para recriar o container..."
-eval "$CRIPTO"
+bash "$HOME/scripts/shell-scripts/crypto.sh"
 
