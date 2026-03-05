@@ -11,7 +11,12 @@ fi
 primary=${monitors[0]}
 secondary=${monitors[1]}
 
+
 case "$1" in
+    --mirror)
+        echo "Colocando $primary e $secondary em modo espelho"
+        xrandr --output "$primary" --primary --auto --output "$secondary" --auto --same-as "$primary"
+        ;;
     --left)
         echo "Colocando $primary à esquerda e $secondary à direita"
         xrandr --output "$primary" --primary --auto --left-of "$secondary" --output "$secondary" --auto
@@ -28,4 +33,5 @@ esac
 EOF
 
 # Dá permissão de execução
+
 
