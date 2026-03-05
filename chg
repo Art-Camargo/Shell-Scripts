@@ -26,7 +26,7 @@ case "$1" in
         xrandr --output "$primary" --primary --auto --right-of "$secondary" --output "$secondary" --auto
         ;;
     *)
-        echo "Uso: chg --left | --right"
+        echo "Uso: chg --left | --right | --mirror"
         exit 1
         ;;
 esac
