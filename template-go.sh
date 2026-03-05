@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# falta implementar, agora, a escolha do banco (se vai ter ORM + postgres ou mongodb com aquele driver podre horroroso dele la vsf + validacao de entrada de dados tipo ZOD paizao)
 
 PROJECT_NAME=$1
 
